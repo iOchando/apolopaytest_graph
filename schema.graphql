@@ -1,0 +1,12 @@
+type Wallet @entity {
+  id: ID!
+  wallet: String!
+}
+
+type Transfer @entity {
+  id: ID!
+  from: String!
+  to: String!
+  amount: String!
+  timestamp: BigInt!
+}

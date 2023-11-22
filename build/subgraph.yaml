@@ -1,0 +1,33 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: near
+    name: ApoloPayTransfer
+    network: near-mainnet
+    source:
+      account: usdt.tether-token.near
+      startBlock: 105859995
+    mapping:
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+        - Wallet
+      receiptHandlers:
+        - handler: handleReceipt
+      file: ApoloPayTransfer/ApoloPayTransfer.wasm
+  - kind: near
+    name: ApoloPayWallet
+    network: near-mainnet
+    source:
+      account: testing.apolopay.near
+      startBlock: 105859995
+    mapping:
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Wallet
+      receiptHandlers:
+        - handler: handleReceipt
+      file: ApoloPayWallet/ApoloPayWallet.wasm
